@@ -217,8 +217,9 @@ export default function DietModule() {
                   })()}
 
                   {/* Handle both new strict video schema and old String format */}
-                  {(() => {
-                    const videoArray = selectedItem.video_recommendations || selectedItem.yt_queries || (selectedItem.yt_query ? [selectedItem.yt_query] : []);
+                 {(() => {
+                  // @ts-ignore
+                  const videoArray = selectedItem.video_recommendations || selectedItem.yt_query;
                     
                     if (videoArray && Array.isArray(videoArray) && videoArray.length > 0) {
                       return (
