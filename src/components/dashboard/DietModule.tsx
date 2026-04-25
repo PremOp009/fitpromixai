@@ -142,7 +142,7 @@ export default function DietModule() {
                   
                   {(() => {
                     // 1. SMART NORMALIZER: Find the diet data whether it's nested or flattened
-                    const dp: any = selectedItem.diet_plan || (selectedItem.breakfast ? selectedItem : null);
+                    const dp: any = (selectedItem as any).diet_plan || ((selectedItem as any).breakfast ? selectedItem : null);
 
                     if (dp && (dp.breakfast || dp.lunch || dp.dinner)) {
                       const mainMeals = ['breakfast', 'lunch', 'dinner'];
