@@ -219,7 +219,7 @@ export default function DietModule() {
                   {/* Handle both new strict video schema and old String format */}
                  {(() => {
                   // @ts-ignore
-                  const videoArray = selectedItem.video_recommendations || selectedItem.yt_query;
+                  const videoArray = (selectedItem as any).video_recommendations || (selectedItem as any).yt_query
                     
                     if (videoArray && Array.isArray(videoArray) && videoArray.length > 0) {
                       return (
