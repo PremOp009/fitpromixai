@@ -178,7 +178,7 @@ export default function TerminalInput() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:7860/api/environment/step", {
+      const res = await fetch("https://fitpromixai.onrender.com/api/environment/step", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -198,7 +198,7 @@ export default function TerminalInput() {
       
       setChatHistory((prev) => [...prev, { role: "ai", content: `${rewardText}${aiResponse}` }]);
     } catch (err) {
-      setChatHistory((prev) => [...prev, { role: "ai", content: "ERROR: Connection to Neural Mainframe lost. Make sure backend is running on port 7860." }]);
+      setChatHistory((prev) => [...prev, { role: "ai", content: "ERROR: Connection to Neural Mainframe lost. Ensure Render Backend is LIVE." }]);
     } finally {
       setIsLoading(false);
     }
