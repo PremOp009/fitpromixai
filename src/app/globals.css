@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-neon: #00f3ff;
+  --color-purple-neon: #d500f9;
+  --color-black-pitch: #050505;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-hover: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply bg-black text-white antialiased selection:bg-cyan-neon selection:text-black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  /* Global Cybernetic Scrollbar Overrides */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(5, 5, 5, 0.5);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(0, 243, 255, 0.5) 0%, rgba(213, 0, 249, 0.5) 100%);
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00f3ff 0%, #d500f9 100%);
+  }
+}
+
+@layer utilities {
+  /* Dedicated local container cyber-scrollbar */
+  .cyber-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #d500f9 rgba(0, 0, 0, 0.2);
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-track {
+    background: rgba(213, 0, 249, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(213, 0, 249, 0.1);
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(213, 0, 249, 0.8), rgba(0, 243, 255, 0.8));
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(213, 0, 249, 0.5);
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #d500f9, #00f3ff);
+    box-shadow: 0 0 15px rgba(213, 0, 249, 0.8);
+  }
+
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-lg border border-white/5;
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.7), 0 0 20px rgba(0, 243, 255, 0.4);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(213, 0, 249, 0.7), 0 0 20px rgba(213, 0, 249, 0.4);
+  }
+
+  .border-glow-cyan {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5), inset 0 0 10px rgba(0, 243, 255, 0.2);
+  }
+}

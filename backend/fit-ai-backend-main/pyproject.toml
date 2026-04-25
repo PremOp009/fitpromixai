@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fitnityai-env"
+version = "1.0.0"
+description = "Fitnity AI - A real-world simulation for AI fitness coaching."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "requests",
+    "openai>=1.0.0",
+    "openai",
+    "huggingface_hub",
+    "openenv-core>=0.2.0"
+]
+
+[project.scripts]
+server = "server.app:main"
