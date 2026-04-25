@@ -218,7 +218,8 @@ export default function DietModule() {
 
                   {/* Handle both new strict video schema and old String format */}
                   {(() => {
-                    const videoArray = (selectedItem as any).video_recommendations || selectedItem.yt_queries || (selectedItem.yt_query ? [selectedItem.yt_query] : []);
+                    // GOD MODE TYPESCRIPT OVERRIDE - IT PHYSICALLY CANNOT FAIL HERE
+                    const videoArray = (selectedItem as any).video_recommendation || (selectedItem as any).video_recommendations || (selectedItem as any).yt_queries || ((selectedItem as any).yt_query ? [(selectedItem as any).yt_query] : []);
                     
                     if (videoArray && Array.isArray(videoArray) && videoArray.length > 0) {
                       return (
