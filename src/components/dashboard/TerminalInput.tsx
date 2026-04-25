@@ -142,7 +142,7 @@ export default function TerminalInput() {
       const payload = {
         action_matrix: `Generate a workout for goal: ${stats.goal}, weight: ${stats.weight}kg, height: ${stats.height}cm.\n\nCRITICAL: Never generate direct YouTube URLs. If the user asks for a video or visual demonstration, output the exact search term wrapped in brackets like this: [YT: Exercise Name].`
       };
-      const res = await fetch("http://localhost:7860/api/environment/step", {
+      const res = await fetch("https://fitpromixai.onrender.com/api/environment/step", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
