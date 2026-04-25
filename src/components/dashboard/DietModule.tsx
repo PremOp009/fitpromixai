@@ -142,7 +142,7 @@ export default function DietModule() {
                   
                   {(() => {
                     // 1. SMART NORMALIZER: Find the diet data whether it's nested or flattened
-                    const dp: any = (selectedItem as any).diet_plan || ((selectedItem as any).breakfast ? selectedItem : null);
+                    const dp: any = (selectedItem as any).diet_plan || (selectedItem.breakfast ? selectedItem : null);
 
                     if (dp && (dp.breakfast || dp.lunch || dp.dinner)) {
                       const mainMeals = ['breakfast', 'lunch', 'dinner'];
@@ -217,9 +217,8 @@ export default function DietModule() {
                   })()}
 
                   {/* Handle both new strict video schema and old String format */}
-                 {(() => {
-                  // @ts-ignore
-                  const videoArray = (selectedItem as any).video_recommendations || (selectedItem as any).yt_query
+                  {(() => {
+                    const videoArray = (selectedItem as any).video_recommendations || selectedItem.yt_queries || (selectedItem.yt_query ? [selectedItem.yt_query] : []);
                     
                     if (videoArray && Array.isArray(videoArray) && videoArray.length > 0) {
                       return (
